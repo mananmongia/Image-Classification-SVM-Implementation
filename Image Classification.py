@@ -77,19 +77,19 @@ img_data[:], labels[:] = zip(*combined)
 # In[80]:
 
 
-def drawimg(img):
-    from matplotlib import pyplot as plt
-    plt.axis('off')
-    plt.imshow(img)
-    plt.show()
+# def drawimg(img):
+#     from matplotlib import pyplot as plt
+#     plt.axis('off')
+#     plt.imshow(img)
+#     plt.show()
 
 
 # In[81]:
 
 
-for i in range(5):
-    print(labels[i])
-    drawimg(img_data[i]/255.0)
+# for i in range(5):
+#     print(labels[i])
+#     drawimg(img_data[i]/255.0)
 
 
 # # Convert Data for one-for-one Classification
@@ -257,11 +257,12 @@ def trainSVMs(x,y, lr = 0.0001,maxItr=300):
         svm_classifiers[i] = {}
         for j in range(i+1,CLASSES):
             if i != j :
+                print ("i: ",i,"j: ",j)
                 xpair, ypair = getDataPairForSVM(data[i], data[j])
                 print("lr: ",str(lr), "maxItr: ",str(maxItr))
                 wts, bias, losses = mysvm.fit(xpair, ypair, lr = lr ,maxItr = maxItr)
-                plt.plot(losses)
-                plt.show()
+#                 plt.plot(losses)
+#                 plt.show()
                 svm_classifiers[i][j] = (wts, bias)
             
     return svm_classifiers
