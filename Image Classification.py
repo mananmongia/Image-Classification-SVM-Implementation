@@ -20,7 +20,7 @@ path = Path("./images/")
 dirs = path.glob('*')
 
 
-# In[75]:
+# In[136]:
 
 
 labels_dict = {
